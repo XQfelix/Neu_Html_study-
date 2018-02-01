@@ -1,0 +1,39 @@
+
+ul,div,li{
+    margin: 0px;
+    padding: 0px;
+}
+
+p:not(.p1){
+    background: red;
+    position: relative;
+}
+
+p::before{
+    content: 'aa';
+}
+
+p::after{
+    content:'bb';
+}
+
+li {
+    list-style: none;
+
+}
+
+li:first-child{
+    background: yellow;
+}
+
+li:last-child{
+    background: green;
+}
+
+li:empty{
+    background: darkgray;
+}
+
+input:checked + span{
+    color:#ff6600;
+}

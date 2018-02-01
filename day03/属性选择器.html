@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        [title]{
+            background: blue;
+        }
+
+        [title~=hello]{
+            background: darkgray;
+        }
+
+        [title=hello]{
+            background: red;
+        }
+
+        a{
+            font-size: 30px;
+            text-decoration: none;
+        }
+        a:link{
+            color: #59b200;
+        }
+        
+        a:visited{
+            color: orange;
+        }
+        
+        a:hover{
+            color: #888888;
+        }
+        
+        a:active{
+            color: #FFCC99;
+        }
+    </style>
+</head>
+<body>
+   <p>不含有title属性的p元素</p>
+   <p title="">title为空的P元素</p>
+   <p title="hello">title=hello的p元素</p>
+   <p title="hello world">title=helloword的p元素</p>
+   <p title="world">title=world的p元素</p>
+
+   <a href="###">你好</a>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历组件</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        table{
+            border-collapse:collapse;
+        }
+
+        table th,table td{
+            border:1px solid #ccc;
+            padding:5px 10px;
+
+        }
+    </style>
+    <script type="text/javascript">
+        /*初始化*/
+        window.onload=function init(){
+            /*获取当前的系统日期*/
+            var dat=new Date();
+            /*获取当前的年份*/
+            var year=dat.getFullYear();
+            /*获取当前的月份*/
+            var month=dat.getMonth()+1;
+            /*拿到月份中最大的天数*/
+            var max=getMax(year,month);
+
+            var tbody=document.getElementById("tb");
+            /*获取该月第一天的日期对象*/
+            var first=new Date(year,month-1,1);
+            /*获取第一天的星期数*/
+            var week=first.getDay();
+
+
+
+            var i=1;
+            while(true){
+                var tr="<tr>";
+                for(var j=0;j<7;j++){
+                    var td="<td>";
+                    if(i==1&&week==j){
+                        td=td+i;
+                        i++;
+                    }else if(i>1&&i<=max){
+                        td=td+i;
+                        i++
+                    }else{
+                        td=td+"&nbsp;"
+                    }
+                    td=td+"</td>"
+                    tr=tr+td;
+                }
+                tr=tr+"</tr>";
+                tbody.innerHTML=tbody.innerHTML+tr;
+                if(i>max){
+                    break;
+                }
+
+            };
+
+        };
+
+        /*拿到月份中的天数*/
+        function getMax(year,month){
+            if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
+                return 31;
+            }else if(month==4||month==6||month==9||month==11){
+                return 30;
+            }else{
+                return
+            }
+        };
+
+        /*计算当前系统时间的平年或者闰年来计算二月的天数*/
+        function isLeap(year){
+            if((year%4==0&&year%100!=0) || year%400==0){
+                return 29;
+            }else{
+                return 28;
+            }
+        };
+    </script>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>日</th>
+        <th>一</th>
+        <th>二</th>
+        <th>三</th>
+        <th>四</th>
+        <th>五</th>
+        <th>六</th>
+    </tr>
+    </thead>
+    <tbody id="tb">
+
+    </tbody>
+    
+</table>
+
+
+
+</body>
+</html>

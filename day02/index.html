@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画照片</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .wrap{
+            margin: 300px auto;
+            height:200px;
+            width:133px;
+            perspective:800px;
+        }
+
+        .imgs{
+            height:200px;
+            width:133px;
+            border:1px solid red;
+            position: relative;
+            transform-style: preserve-3d;
+            transform:rotateX(-20deg) rotateY(0deg);
+        }
+
+        .imgs img{
+            position:absolute;
+            left:0;
+            top:0;
+           transform: translateZ(300px);
+        }
+
+        .imgs img:nth-child(2){
+            transform:rotateY(36deg) translateZ(300px);
+        }
+        .imgs img:nth-child(3){
+            transform:rotateY(72deg) translateZ(300px);
+        }
+
+        .imgs img:nth-child(4){
+            transform:rotateY(108deg) translateZ(300px);
+        }
+
+        .imgs img:nth-child(5){
+            transform:rotateY(144deg) translateZ(300px);
+        }
+
+        .imgs img:nth-child(6){
+            transform:rotateY(180deg) translateZ(300px);
+        }
+
+        .imgs img:nth-child(7){
+            transform:rotateY(216deg) translateZ(300px);
+        }
+
+        .imgs img:nth-child(8){
+            transform:rotateY(252deg) translateZ(300px);
+        }
+
+        .imgs img:nth-child(9){
+            transform:rotateY(288deg) translateZ(300px);
+        }
+        .imgs img:nth-child(10){
+            transform:rotateY(324deg) translateZ(300px);
+        }
+
+
+
+    </style>
+</head>
+<body>
+         <div class="wrap">
+             <div class="imgs">
+                 <img src="img/1.jpg" alt="1" height="200px" width="133px">
+                 <img src="img/2.jpeg" alt="2" height="200px" width="133px">
+                 <img src="img/3.jpg" alt="3" height="200px" width="133px">
+                 <img src="img/4.jpg" alt="4" height="200px" width="133px">
+                 <img src="img/5.jpg" alt="5" height="200px" width="133px">
+                 <img src="img/1.jpg" alt="6" height="200px" width="133px">
+                 <img src="img/2.jpeg" alt="7" height="200px" width="133px">
+                 <img src="img/3.jpg" alt="8" height="200px" width="133px">
+                 <img src="img/4.jpg" alt="9" height="200px" width="133px">
+                 <img src="img/5.jpg" alt="10" height="200px" width="133px">
+
+             </div>
+         </div>
+</body>
+</html>

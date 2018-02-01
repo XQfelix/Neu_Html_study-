@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>魔方</title>
+    <meta charset="utf-8" />
+    <style>
+
+      *{
+          margin: 0;
+      }
+
+        h1{
+            font-size:50px;
+            text-align: center;
+
+        }
+        .outer {
+
+            width: 200px;
+            height: 200px;
+            margin: 300px;
+        }
+
+        .main:hover {
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            animation: rotate linear 5s infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg)   rotateY(0deg) ;
+            }
+            to {
+                transform: rotateX(360deg)   rotateY(360deg);
+            }
+        }
+
+        .main div {
+            position:absolute;
+            width: 200px;
+            height: 200px;
+            transition: all 4s;
+        }
+
+
+
+        .main .front {
+            transform: rotateY(0deg) translateZ(100px);
+        }
+
+        .main .back {
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .main .left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .main .right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .main .top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .main .bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+
+<div class="outer">
+
+    <div class="main">
+
+        <div class="front" style="background-color: red"><h1>前</h1></div>
+
+        <div class="back" style="background-color: grey"><h1>后</h1></div>
+
+        <div class="left" style="background-color: purple"><h1>左</h1></div>
+
+        <div class="right" style="background-color: plum"><h1>右</h1></div>
+
+        <div class="top" style="background-color: gold"><h1>上</h1></div>
+
+        <div class="bottom" style="background-color: yellowgreen"><h1>下</h1></div>
+
+
+    </div>
+
+</div>
+</body>
+
+</html>

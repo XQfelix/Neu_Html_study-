@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title></title>
+
+</head>
+
+<body>
+
+</body>
+    <table>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+
+<script type="text/javascript">
+    var tr=document.createElement('tr');
+    var tbody=document.getElementById('tb');
+    tbody.appendChild(tr);
+
+    //打印99乘法表
+
+    for (var n=1;n<=9;n++) {
+
+        for (var m=1;m<=n;m++) {
+
+            var b=m*n;
+
+            document.write(m+"×"+n+"="+b+"  |   "+"   ");
+
+        }
+
+
+
+        document.write("<br/>");
+        document.write("<br/>");
+        document.write("<br/>");
+       
+
+
+    }
+
+</script>
+
+
+
+</html>

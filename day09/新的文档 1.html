@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+    <div id="one" style="height:300px;width:300px;background:red;">
+     
+	 <input	type="text" id="two">
+	  </div>
+
+<script>
+     var oOne = document.getElementById('one');
+	 var oTwo = document.getElementById('two');
+
+	 /**oOne.onclick=function(){
+	     console.log("点击事件");
+	 }    **/
+	 oOne.ondblclick=function(){
+		console.log('双击事件');
+	 };
+
+	 oTwo.onfocus=function(){
+		console.log("获得焦点");
+	 };
+
+	 oTwo.onblur=function(){
+		console.log("失去焦点");
+	 };
+
+	 oOne.onmousemove=function(){
+		console.log("鼠标移动");
+	 };
+
+	 oTwo.onkeydown=function(e){
+		console.log(e.keyCode);
+		if((e.keyCode<48||e.keyCode>57)&&e.keyCode!=8){
+			return false;
+		};
+		
+	 };
+</script>
+ </body>
+</html>

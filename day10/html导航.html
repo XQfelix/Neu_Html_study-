@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航联系</title>
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        dt {
+            height:50px;
+            line-height: 50px;
+            width:200px;
+            background-color: #000000;
+            color: #ffffff;
+            padding-left: 40px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        dt:hover{
+            color: #f64914;
+        }
+
+        dd{
+            display: none;
+        }
+
+        .one{
+            background-color: #f1ab03;
+        }
+
+        .four{
+            background-color: blueviolet;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <select name="省份" id="nav">
+        <option value="0">山西省</option>
+        <option value="1">河南省</option>
+        <option value="2">山东省</option>
+
+    </select>
+
+    <dl id="one">
+        <dt>山西省</dt>
+        <dd>哈哈</dd>
+        <dd>爱好</dd>
+        <dd>哈哈</dd>
+        <dd>你哈</dd>
+    </dl>
+    <dl>
+        <dt>河南省</dt>
+        <dd>哈哈</dd>
+        <dd>爱好</dd>
+        <dd>哈哈</dd>
+        <dd>你哈</dd>
+    </dl>
+    <dl>
+        <dt>山东省</dt>
+        <dd>哈哈</dd>
+        <dd>爱好</dd>
+        <dd>哈哈</dd>
+        <dd>你哈</dd>
+    </dl>
+
+
+
+
+    <!--<div class="one">你好-->
+        <!--<div class="two">-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script>
+
+       $(function(){
+
+
+
+           $('#nav').change(function(){
+               $('dt').click(function(){
+                   $(this).nextAll().toggle().parent().siblings().children('dd').hide();
+
+               });
+
+
+           });
+
+       });
+
+
+
+
+
+
+
+
+//
+//        $(function(){
+//            $(".one").css({
+//                'height':'20px',
+//                'width':'40px',
+//                'cursor':'pointer',
+//            });
+//
+//            $('.two').css({
+//                'height':'300',
+//                'width':'300',
+//                'background-color':'blue',
+//                'display':'none'
+//            });
+//
+//            $('.one').click(function(){
+//                $('.two').toggle();
+//
+//
+//                if($('.one').hasClass('four')){
+//                    $('.one').removeClass('four');
+//                }else{
+//                    $('.one').addClass('four');
+//                }
+//
+//            });
+//
+//
+//        });
+
+    </script>
+</body>
+
+
+</html>
