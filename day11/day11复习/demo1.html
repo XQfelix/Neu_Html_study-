@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习2</title>
+	<style>
+
+	*{
+		margin:0;
+		padding:0;
+	}
+
+    .dig{
+		height:200px;
+		width:200px;
+		box-shadow:6px 6px 16px #f64628;
+		position:absolute;
+		border-radius:20px;
+	}
+
+	.header{
+		height:39px;
+		border-bottom:1px solid #f64628;
+	}
+	
+	</style>
+
+</head>
+	
+<body>
+
+
+     <div  class="dig"> 
+		<div class="header"></div> 
+	 
+	 </div>
+
+      
+</body>
+
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		
+	$(function(){
+		//让div初始化的时候出现在屏幕的中间,用window窗口的高宽减去div的宽高,然后除以二
+		//给绝对定位的div;
+		init();                                  //init()方法的调用;
+		$(window).resize(init);                   //在改变窗口大小的时候实现居中;
+        function init(){
+			var wH=$(window).height();            //获取window窗口的高;
+			var wW=$(window).width();             //获取window窗口的宽;
+
+			var oDh=$('.dig').height();           //获取div的高;
+			var oDw=$('.dig').width();            //获取div的宽;
+
+			var _top=(wH-oDh)/2;                
+			var _left=(wW-oDw)/2;       
+
+	   //将获取到的长宽分别赋值给div的top和left值;
+			$('.dig').css({
+				'left':_left+"px",
+				'top':_top+"px"
+			});
+		}
+
+
+ 		/*鼠标按下事件*/
+        $('.header').mousedown(function(e){
+
+           var dX=e.clientX||e.pageX;                   //获取当前鼠标的X位置;
+		   var dY=e.clientY||e.pageY;                  //获取当前鼠标的Y位置;
+
+		   var oDx=$('.dig').offset().left;             //获取当前鼠标距离DIV左边距位置;
+		   var oDy=$('.dig').offset().top;              //获取当前鼠标距离DIV顶端的位置;
+  
+          /*鼠标移动事件*/
+
+		  $('.dig').mousemove(function(ev){
+
+			var mX=ev.clientX||ev.pageX;                //获取当前鼠标移动的位置X坐标;
+			var mY=ev.clientY||ev.pageY;                //获取当前鼠标移动的位置的Y坐标;
+            
+			var _left=mX-dX+oDx;                         
+			var _top=mY-dY+oDy; 
+
+          /*将获取到的位置赋值给div中的top和left*/
+			$('.dig').css({
+				'top':_top+"px",
+				'left':_left+"px"
+			});
+
+
+
+		  
+		  });
+
+
+		
+		});
+
+
+
+	});
+	
+	
+	
+	
+	</script>
+	
+</html>

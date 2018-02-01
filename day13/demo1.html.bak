@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title></title>
+  <style>
+
+  *{
+	margin:0;
+	padding:0; 
+  }
+
+  body{
+	
+  }
+
+  .out {
+	perspective:900px;
+	
+  }
+
+  .out .imgs{
+    transform-style: preserve-3d;	
+	transform:rotateX(-15deg) rotateY(0deg);
+	height:200px;
+	width:133px;
+	margin:200px auto;
+	border:1px solid red;
+	position:relative;
+
+  }
+
+  .out .imgs img{
+   -webkit-box-reflect:below 10px;
+    box-shadow:2px 2px 16px red;
+	position:absolute;
+	left:0;
+	top:0;
+	transition:2s ;
+
+  }
+  
+  
+
+  
+  </style>
+ </head>
+ <body style="background:#000;">
+     <div class="out">
+		<div class="imgs">
+			  <img alt="dongwu" src="img/1.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/2.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/3.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/4.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/5.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/6.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/7.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/8.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/9.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/10.jpg" height="200px" width="133px"/>
+			  <img alt="dongwu" src="img/11.jpg" height="200px" width="133px"/>
+		</div>
+		
+	 </div>
+ 	
+ </body>
+ <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+		$(function(){
+			
+			
+		  $(".out .imgs img").each(function(index,element){
+			  var dg=(360/11)*index;
+			  var i=0+0.3*index;
+
+			  $(element).css({
+			   "transform":"rotateY("+dg+"deg) translateZ(350px)","transition":"1s "+i+"s"});
+		  });
+
+		  $(document).mousedown(function(e){
+			var fx=e.clientX||e.page;                               //获取当前鼠标按下的时候X坐标
+			var fy=e.clientY||e.page;                               //获取当前鼠标按下的时候Y坐标
+
+			var flag=true;
+			var xx=-15;
+			var yy=0;
+
+			$(document).mousemove(function(ev){
+			if(flag){
+			var sx=ev.clientX||ev.page;                          //获取鼠标移动之后的X坐标;
+			var sy=ev.clientY||ev.page;                           //获取鼠标移动之后的Y坐标;
+
+            var x=xx+(sx-fx)*0.2;
+			var y=yy+(sy-fy)*0.2;
+
+
+			$(".out .imgs").css({
+			"transform":"rotateX("+y+"deg) rotateY("+x+"deg)"});
+			 }
+
+			 xx=x;
+			 yy=y;
+
+
+			
+		  }).mouseup(function(){
+			flag=false;
+		  });
+
+
+		 
+		  });
+
+		 
+
+
+
+		
+	
+
+		});
+  </script>
+</html>

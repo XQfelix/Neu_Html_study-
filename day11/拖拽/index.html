@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .dig{
+            height: 200px;
+            width:200px;
+            box-shadow:6px -10px 16px #f61464;
+            border-radius:20px;
+            position:absolute;
+        }
+
+        .header{
+            height: 39px;
+            width:200px;
+            border-bottom:1px solid #f61464;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="dig">
+        <div class="header"></div>
+    </div>
+
+</body>
+
+    <script type="text/javascript"  src="jquery-3.2.1.min.js"></script>
+    <script>
+        $(function(){
+            init();
+            $(window).resize(init);
+            function init(){
+                var winH=$(window).height();              //获取到当前window窗口界面的高
+                var winW=$(window).width();               //获取到当前window窗口界面的宽
+
+                var dH= $('.dig').height();                         //获取到DIV的高
+                var dW= $('.dig').width();                          //获取到DIV的宽
+
+                //用window窗口的宽和高  减去  DIV的宽和高 可以让div在屏幕界面中居中;
+
+                var _top=(winH-dH)/2;
+                var _left=(winW-dW)/2;
+
+                //将计算出来的结果的top和left赋值给绝对定位的DIV的宽 和高;
+
+                $('.dig').css({
+                    'left':_left+'px',
+                    'top':_top+'px'
+                });
+            }
+
+
+            //鼠标按下事件;
+
+            $('.header').mousedown(function(e){
+                var flag=true;
+                var dX= e.clientX||e.pageX;                     //获取到当前鼠标点击时候的横坐标;
+                var dY= e.clientY||e.pageY;                     //获取到当前鼠标按下的时候纵坐标;
+
+                var oDx= $('.dig').offset().left;              // 获取到当前鼠标按下的时候距离DIV的左边距
+                var oDy= $('.dig').offset().top;               // 获取到当前鼠标按下的时候距离DIV的上边距;
+
+
+                $(document).mousemove(function(ev){
+                      if(flag){
+                      var mX=ev.clientX||ev.pageX;             //获取到鼠标移动时候的横坐标
+                      var mY=ev.clientY||ev.pageY;             // 获取到鼠标移动的时候的纵坐标;
+
+                      var _left=mX-dX+oDx;                      //计算出移动的时候div距离窗口的左边距
+                      var _top=mY-dY+oDy;                       //计算出移动的时候div距离窗口的上边距
+
+                    //将计算出来的上左边距赋值给div绝对定位的left  和top
+
+                    $('.dig').css({
+                        'top':_top+"px",
+                        'left':_left+"px"
+
+                    });
+                      }
+
+
+                }).mouseup(function(){
+                    flag=false;
+                });
+
+
+            });
+
+
+        });
+
+
+    </script>
+
+
+</html>

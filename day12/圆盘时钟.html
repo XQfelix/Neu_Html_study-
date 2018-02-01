@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>圆盘时钟</title>
+	<style>
+			
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		.out{
+			height:500px;
+			width:500px;
+			border:8px solid grey;	
+			border-radius:250px;
+			position:relative;
+			box-shadow:4px 3px  30px #000;
+			
+			}
+
+		.circle{
+			height:20px;
+			width:20px;
+			background:#000;
+			border-radius:15px;
+			position:absolute;
+			left:240px;
+			top:240px;
+			z-index:99;
+		}
+
+		.out ul{
+			position:absolute;
+			left:240px;
+			top:240px;
+		}
+
+		.out li {
+			list-style:none;
+			position:absolute;	
+			font-weight:700;
+			font-size:20px
+			
+		}
+
+		 #hour{
+			height:100px;
+			width:8px;
+			background:#98FB98;
+			position:absolute;
+			left:245px;
+			top:150px;
+			transform-origin:bottom;
+			border-bottom:100px;
+		
+		}
+
+		#min{
+			height:150px;
+			width:5px;
+			background:blue;
+			position:absolute;
+			left:247px;
+			top:100px;
+			transform-origin:bottom;
+		}
+
+		#sec{
+			height:200px;
+			width:3px;
+			background:orange;
+			position:absolute;
+			left:248px;
+			top:50px;
+			transform-origin:bottom;
+		}
+	
+	
+	</style>
+
+ </head>
+ <body>
+
+
+ <div  class="out">
+
+    <div class="circle"></div>
+	<div id="hour"></div>
+	<div id="min"></div>
+	<div id="sec"></div>
+<ul>
+	<li><div>12</div></li>
+	<li><div>1</div></li>
+	<li><div>2</div></li>
+	<li><div>3</div></li>
+	<li><div>4</div></li>
+	<li><div>5</div></li>
+	<li><div>6</div></li>
+	<li><div>7</div></li>
+	<li><div>8</div></li>
+	<li><div>9</div></li>
+	<li><div>10</div></li>
+	<li><div>11</div></li>
+</ul>
+		
+ 
+ 
+ </div>
+  
+<script  type="text/javascript"   src="jquery-3.2.1.min.js"></script>
+<script> 
+       $(function(){
+		    init();
+			$(window).resize(init);
+			function init(){
+			 var wH=$(window).height();                  //获取当前window窗口的高度
+			 var wW=$(window).width();                    //获取当前window窗口的宽度
+
+			 var dH=$('.out').height();					//  获取当前div的高度;
+			 var dW=$('.out').width();                  //获取当前DIV 的宽度;
+
+			 var _top=(wH-dH)/2;                        //将获取的window的高度减去div的高度除以2 得到top值
+			 var _left=(wW-dW)/2;                       //将获取的window的宽度减去div的宽度除以2 得到left值
+
+			 $('.out').css({
+				"left":_left+"px",
+				"top":_top+"px"
+			 });
+
+			 //表盘文字摆放;
+			 
+            $('.out ul li').each(function(index,element){
+				var i=index*30;
+			$(element).css({
+				  "transform":"rotateZ("+i+"deg) translateY(-240px)"
+				});
+
+            $(element).children('div').css({"transform":"rotateZ(-"+i+"deg)"
+				
+			});
+
+			});
+			
+			
+			}
+
+
+
+			 setInterval(function(){
+				var dat=new Date();
+				var hour=dat.getHours();
+				var min=dat.getMinutes();
+				var sec=dat.getSeconds();
+
+	            
+
+				var secdeg=sec*6;
+				var mindeg=min*6;
+			    var hourdeg=((hour%12)+min/60)*30;
+
+				
+
+                $('#hour').css({"transform":"rotateZ("+hourdeg+"deg)"});
+				$('#min').css({"transform":"rotateZ("+mindeg+"deg)"});
+				$('#sec').css({"transform":"rotateZ("+secdeg+"deg)"});
+
+			
+			},1000);
+
+         
+		
+
+            
+  
+
+	   
+	   });
+
+
+
+
+</script>
+
+
+ </body>
+</html>

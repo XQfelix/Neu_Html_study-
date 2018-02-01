@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>百叶窗</title>
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+
+	@keyframes in{
+		from{left:192px;}
+		to{left:0;}
+	}
+
+	@keyframes out{
+		from{left:0;}
+		to{left:-192px;}
+	}
+
+	.out .split .show{
+		animation:in 0.5s;
+		left:0px;
+	}
+
+	
+	.out .split .hide{
+		animation:out 0.5s;
+		left:-192px;
+	}
+
+
+	.out{
+		height:648px;
+		width:1152px;
+		border:1px solid red;
+		position:relative;
+		margin:50px auto;
+	}
+
+	.out .split{
+		height:648px;
+		width:192px;
+		float:left;
+		position:relative;
+		overflow:hidden;
+
+	}
+
+	.out .split p{
+		height:648px;
+		width:192px;
+		position:absolute;
+		top:0;
+		left:192px; 	
+	}
+
+
+
+	.out .split p:nth-child(1){
+		background:url("img/110000.jpg");		
+	}
+
+	.out .split p:nth-child(2){
+		background:url("img/22.jpg");
+	}
+
+	.out .split p:nth-child(3){
+		background:url("img/33.jpg");
+	}
+
+	.out .split p:nth-child(4){
+		background:url("img/44.jpeg");
+	}
+
+	.out .split p:nth-child(5){
+		background:url("img/55.jpg");
+	}
+
+
+    .out .split:nth-child(2) p{
+		background-position:-192px 0;
+	}
+
+
+    .out .split:nth-child(3) p{
+		background-position:-384px 0;
+	}
+
+	.out .split:nth-child(4) p{
+		background-position:-576px 0;
+	}
+
+	.out .split:nth-child(5) p{
+		background-position:-768px 0;
+	}
+
+	.out .split:nth-child(6) p{
+		background-position:-960px 0;
+	}
+
+	.out ul {
+		position:absolute;
+		top:600px;
+		left:500px;
+	}
+
+	.out li{
+	    list-style:none;
+		display:inline-block;
+		height:10px;
+		width:10px;
+		background-color:#eeeeee;
+		border-radius:5px;
+		margin-left:10px;
+	}
+  
+  
+  </style>
+
+ </head>
+ <body>
+    <div class="out">
+		<div class="split">
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+
+		<div class="split">
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+
+		<div class="split">
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+
+		<div class="split">
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+
+		<div class="split">
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+
+		<div class="split">
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	
+	</div>       
+
+  
+ </body>
+
+
+ <script src="jquery-3.2.1.min.js"></script>
+ <script>
+		$(function(){
+			$('.out li').click(function(){
+				var i = $(this).index();
+
+				$('.split').each(function(index,element){
+                      $(element).children('p').eq(i).addClass('show').removeClass('hide').siblings('.show').removeClass('show')
+					  .addClass('hide');
+
+				
+				});
+			});
+
+
+		});
+
+ </script>
+</html>

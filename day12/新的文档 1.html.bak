@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>时间</title>
+
+  <style>
+  *{
+	margin:0;
+	padding:0;
+  }
+
+  div{
+	height:300px;
+	width:800px;
+	border:15px solid #eeeeee;
+	margin:300px auto;
+	text-align:center;
+	font-size:140px;
+	line-height:150px;
+	border-radius:30px;
+	box-shadow:6px 6px 16px #f64818;
+	
+  }
+
+  </style>
+ </head>
+ <body>
+
+    <div>
+	
+	
+	</div>
+ 
+
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		setInterval(function(){
+			var day = new Date().getDate();
+			var mon = new Date().getMonth()+1;
+			var hour = new Date().getHours();
+			var min =  new Date().getMinutes();
+			var sec =  new Date().getSeconds();
+			
+
+			if(hour<10){
+				hour='0'+hour;
+			}
+
+			if(min<10){
+				min='0'+min;
+			}
+
+			if(sec<10){
+				sec='0'+sec;
+			}
+
+
+
+			$('div').text(mon+"月"+"|" + day+"日" +"    " +"|"+hour+":"+min+":"+sec);
+		
+		},1000);
+		
+	});
+</script>
+ </body>
+</html>

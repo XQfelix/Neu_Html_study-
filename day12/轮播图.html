@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="img/index.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes in {
+            from{left:1152px;}
+            to{left:0;}
+        }
+
+        @keyframes out {
+            from{left:0;}
+            to{left:-1152px;}
+        }
+
+        .wrap .show{
+            animation:in 1s;
+            left:0px;
+        }
+
+        .wrap .hide{
+            animation: out 1s;
+            left: -1152px;
+
+        }
+
+        .wrap{
+            margin: 50px auto;
+            height:648px;
+            width: 1152px;
+            border:15px solid #EEEEEE;
+            border-radius: 20px;
+            box-shadow: 0px 5px 40px  black;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .wrap div{
+            height:648px;
+            width: 1152px;
+            position: absolute;
+            top:0;
+            left:1152px;
+        }
+        
+        .wrap>div:nth-child(1){
+            background: url("./img/110000.jpg");
+        }
+        .wrap>div:nth-child(2){
+            background: url("./img/22.jpg");
+        }
+        .wrap>div:nth-child(3){
+            background: url("./img/33.jpg");
+        }
+        .wrap>div:nth-child(4){
+            background: url("./img/44.jpeg");
+        }
+        .wrap>div:nth-child(5){
+            background: url("./img/55.jpg");
+        }
+
+        .wrap ul{
+            position:absolute;
+            bottom:30px;
+            left:500px;
+        }
+
+        .wrap ul li{
+            background-color: #f4f4f4;
+            height:10px;
+            width:10px;
+            border-radius: 5px;
+            margin-left: 20px;
+            cursor:pointer;
+            display: inline-block;
+
+        }
+
+
+
+        .wrap .color{
+            background-color: #f64914;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+      <div class="wrap">
+          <div class="show"></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+      <ul>
+          <li class="color"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+
+      </div>
+
+
+
+
+
+</body>
+</html>

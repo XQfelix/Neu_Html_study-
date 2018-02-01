@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta>
+<title>hello</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		
+		@keyframes in{
+			from{left:1152px;}
+	     	to{left:0;}
+		}
+		
+		@keyframes out{
+			from{left:0px;}
+	     	to{left:-1152px;}
+		}
+		
+		.wrap .show{
+		   animation:in 1s;
+		   left:0px;
+		
+		}
+		
+		.main{
+			height:648px;
+			width:1152px;
+			border:1px solid red;
+			margin:50px auto;
+			position:relative;
+		}
+		
+		.main ul{
+			position:absolute;
+			bottom:30px;
+			left:450px;
+		
+		}
+		
+		.main  ul li{
+			
+			height:10px;
+			width:10px;
+			list-style:none;
+			background:#f4f4f4;
+			border-radius:5px;
+			display:inline-block;
+			margin:10px;
+			cursor:pointer;
+		}
+		
+		.main div{
+			height:648px;
+			width:1152px;
+			position:absolute;
+			top:0;
+			left:1152px;	
+		}
+		
+		.main div:nth-child(1){
+			background:url("img/110000.jpg");
+		}
+		
+		.main div:nth-child(2){
+			background:url("img/22.jpg");
+		}
+		
+		.main div:nth-child(3){
+			background:url("img/33.jpg");
+		}
+		
+		.main div:nth-child(4){
+			background:url("img/44.jpeg");
+		}
+		
+		.main div:nth-child(5){
+			background:url("img/55.jpg");
+		}
+		
+		
+		
+		
+
+	</style>
+</head>
+
+<body>
+	<div class="main">
+		<div class="show"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+		<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		</ul>
+	</div>
+   
+   
+   
+   
+</body>
+
+
+
+</html>

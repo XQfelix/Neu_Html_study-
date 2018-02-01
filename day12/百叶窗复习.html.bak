@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>picture</title>
+
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+  
+
+   .wrap{
+   		height:648px;
+		width:1272px;
+		margin:60px auto;
+		border:10px solid #eee;
+		box-shadow:4px 3px 30px #000;
+
+
+   }
+
+   .wrap ul li{
+		list-style:none;
+		height:648px;
+		width:30px;
+		float:left;
+		transition:1s;
+   }
+
+   .wrap ul li:nth-child(1){
+		background:url("img/110000.jpg");
+		width:1152px;
+   }
+
+   .wrap ul li:nth-child(2){
+		background:url("img/22.jpg");
+   }
+
+   .wrap ul li:nth-child(3){
+		background:url("img/33.jpg");
+   }
+
+   .wrap ul li:nth-child(4){
+		background:url("img/44.jpeg");
+   }
+
+   .wrap ul li:nth-child(5){
+		background:url("img/55.jpg");
+   }
+
+
+  
+  </style>
+ </head>
+ <body>
+
+
+
+ <div class="wrap">
+
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>		
+		</ul>
+ 
+ </div>
+ </body>
+
+ <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+ <script type="text/javascript">
+		$(function(){
+			$(function(){
+			$('.wrap ul li').click(function(){
+				$(this).width('1152px').siblings().width('30px');
+			
+			});
+			
+			});
+			
+		});
+
+
+
+
+ </script>
+
+
+
+ </html>

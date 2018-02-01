@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>时钟复习</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		.out{
+			height:500px;
+			width:500px;
+			border:8px solid #eeeeee;
+			border-radius:250px;
+			position:absolute;
+			box-shadow:4px 3px 30px #000;
+		}
+
+		.circle{
+			height:20px;
+			width:20px;
+			background:black;
+			border-radius:10px;
+			position:absolute;
+			left:240px;
+			top:240px;	
+			z-index:99;
+		}
+
+		.out ul{
+			position:absolute;
+			left:240px;
+			top:240px;
+		}
+
+		.out ul li{
+			list-style:none;
+			position:absolute;
+			font-size:20px;
+			font-weight:700;
+
+		}
+
+		#hour{
+			height:100px;
+			width:6px;
+			background:orange;
+			position:absolute;
+			left:247px;
+			top:150px;
+			transform-origin:bottom;
+		}
+		#sec{
+			height:200px;
+			width:2px;
+			background:red;
+			position:absolute;
+			left:249px;
+			top:50px;
+			transform-origin:bottom;
+		}
+		#min{
+			height:150px;
+			width:4px;
+			background:green;
+			position:absolute;
+			left:248px;
+			top:100px;
+			transform-origin:bottom;
+		}
+
+		.up{
+		  height:100px;
+		  width:550px;
+		  position:absolute;
+		  top:-130px;
+		  left:-20px;
+		  border:2px solid #eeeeee;
+		  font-size:70px;
+		  line-height:100px;
+
+		}
+	
+	</style>
+
+ </head>
+ <body>
+       <div class="out">
+            <div class="circle"> </div>
+			<ul>
+			<li><div>12</div></li>
+			<li><div>1</div></li>
+			<li><div>2</div></li>
+			<li><div>3</div></li>
+			<li><div>4</div></li>
+			<li><div>5</div></li>
+			<li><div>6</div></li>
+			<li><div>7</div></li>
+			<li><div>8</div></li>
+			<li><div>9</div></li>
+			<li><div>10</div></li>
+			<li><div>11</div></li>
+			
+			</ul>
+			
+			<div class="up"></div>
+			<div id="hour"></div>
+			<div id="min"></div>
+			<div id="sec"></div>
+	   </div>
+
+	   <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	   <script>
+			$(function(){
+                 
+				init();
+				function init(){
+					var wH=$(window).height();						//获取window窗口的高度;
+					var wW=$(window).width();					    //获取window窗口的宽度;
+
+					var dH=$('.out').height();						//获取div的高度;
+					var dW=$('.out').width();						//获取div的宽度;
+
+					//计算div的位置,通过window窗口的宽高减去div的宽高,然后除以2得到的就是绝对定位的坐标;
+
+					var _top=(wH-dH)/2;
+					var _left=(wW-dW)/2;
+
+					//将计算之后的数值 赋值给top  和left
+
+					$('.out').css({
+						"left":_left+"px",
+						"top":_top+"px"
+					});
+			
+				}
+             
+			   /*表盘数值的放置*/
+
+				$('.out ul li').each(function(index,element){
+				    var i=index*30;
+                    $(element).css({
+					 "transform":"rotateZ("+i+"deg) translateY(-240px)" 
+					});
+
+					$(element).children('div').css({
+					"transform":"rotateZ(-"+i+"deg)"	
+					});
+
+				});
+
+				/*获取时间对象,并计算每个指针的旋转角度*/
+			    setInterval(function(){
+				    var dat=new Date();
+					var hour=dat.getHours();                         //获取小时数值;
+					var min=dat.getMinutes();                        //获取分钟数值;
+					var sec=dat.getSeconds();						//获取秒数;
+					var month=dat.getMonth()+1;
+					var year=dat.getFullYear();
+					var day =dat.getDate();
+ 
+					var hourdeg=((hour%12)+min/60)*30;              //计算时针走过的角度;
+					var mindeg=min*6;								//计算分针走过的角度;	
+					var secdeg=sec*6;								//计算秒针走过的角度;
+				
+
+
+					$('#hour').css({"transform":"rotateZ("+hourdeg+"deg)"});
+					$('#min').css({"transform":"rotateZ("+mindeg+"deg)"});
+					$('#sec').css({"transform":"rotateZ("+secdeg+"deg)"});
+
+					if(month<10){
+						month='0'+month;
+							}
+
+							if(year<10){
+								year='0'+year;
+							}
+
+							if(day<10){
+								day='0'+day;
+							}
+
+
+					$('.up').text(year+"年"+month+"月"+day+"日");
+
+				
+				},1000);
+
+
+
+			});
+	   
+	   </script>
+ </body>
+</html>
