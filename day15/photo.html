@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>照片墙</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        html,body{
+            height: 100%;
+        }
+
+        .wrap{
+            height:90%;
+            width: 90%;
+            border:1px solid red;
+            position: absolute;
+            top:5%;
+            left:5%;
+        }
+
+        .wrap>.imgs>li{
+            height:100px;
+            width: 150px;
+            list-style: none;
+            position: absolute;
+            transition:1s;
+
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <ul class="imgs"></ul>
+    </div>
+</body>
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script>
+        $(function(){
+
+            init();
+            initposition();
+            /*初始化自动加载图片*/
+            function init(){
+                for(var i=1;i<25;i++){
+                    var _li=$("<li></li>");
+                        _li.css({
+                            "background":"url(img/"+i+".jpg)",
+                            "background-size":"150px 100px",
+                            "box-shadow":"0 0 20px #f64818",
+                            "transform":"scale(0.9)"
+                        });
+                    $('.imgs').append(_li);
+                }
+            }
+
+            /*初始化图片摆放位置*/
+
+            function initposition(){
+                /*计算每个图片的左右间距,通过div的实际大小减去6张图片的大小然后除以5*/
+
+                var _x=($(".wrap").width()-150*6)/5;
+                var _y=($(".wrap").height()-100*4)/3;
+            /*获取ul下面的所有li*/
+                $(".imgs li").each(function(index,element){
+
+                    var xIn=parseInt(index/6);          //获取图片摆放的行索引
+                    var yIn=index%6;                    //获取图片摆放的列索引
+
+                    var _left=(150+_x)*yIn;             //获取图片的left值
+                    var _top=(100+_y)*xIn;              //获取图片的top值;
+
+                    var deg=(Math.random()-0.5)*30;      //使用random获取一个随机数旋转角度;
+
+                    $(element).css({
+                        "left":_left+"px",
+                        "top":_top+"px",
+                        "transform":"rotate("+deg+"deg)"
+                    });
+
+                });
+            }
+
+
+            /*给li绑定点击事件*/
+
+            $(".imgs").click(function(e){
+
+
+                var img=$(e.target).css("backgroundImage");                   /*获取到li的背景图*/
+                $(this).children('li').css({
+                    "transform":"rotate(0deg) scale(1)",
+                    "box-shadow":"0 0 0 0",
+                    "background":img,
+                });
+            });
+
+            /*计算图片合成之后的位置*/
+
+            setTimeout(function(){
+                $(".imgs li").each(function(index,element){
+                    var _xIn=parseInt(index/6);           //获取行索引
+                    var _yIn=index%6;
+
+                    var xposition=_yIn*125;
+                    var yposition=_xIn*125;
+
+                    /*计算拼接之后的left和top*/
+
+                    var _left=($(".wrap").width()-750)/2;
+                    var _top=($(".wrap").height()-500)/2;
+
+                    $(element).css({
+                        "background-position":+"-"+xposition+"px -"+yposition+"px",
+                        "left":(xposition+_left)+"px",
+                        "top":(yposition+_top)+"px"
+
+                    });
+
+                },1000);
+
+
+            });
+
+
+        });
+
+
+    </script>
+</html>

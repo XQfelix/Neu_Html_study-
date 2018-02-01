@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>照片墙</title>
+  <style>
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		html,body{
+			height:100%;
+		}
+
+		.wrap{
+			width:90%;
+			height:90%;
+			background-color:#c0c0c0;
+			border:8px solid #eeeeee;
+			box-shadow:0 0 36px #000;
+			position:absolute;
+			top:5%;
+			left:5%;
+		}
+
+		.wrap>ul>li{
+			width:150px;
+			height:100px;
+			list-style:none;
+			position:absolute;
+			top:0;
+			left:0;
+			transition:1s;
+		}
+
+  </style>
+ </head>
+ <body>
+	<div class="wrap">
+	  <ul class="imgs small"></ul>
+		
+	</div>
+
+  
+ </body>
+ <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+ <script type="text/javascript">
+	$(function(){
+		init();
+		initposition();
+		
+		/*初始化li加载图片*/
+		function init(){
+			for(var i=1;i<=24;i++){
+				var _li=$("<li></li>");
+				_li.css({
+					"background":"url('img/"+i+".jpg')",
+					"background-size":"150px 100px",
+					"box-shadow":"0 0 40px #ffffff",
+					"transform":"scale(0.9)"
+					
+				});
+
+				$(".imgs").append(_li);
+			}
+		}
+
+
+		/*初始化  定位图片*/
+		function initposition(){
+			/*计算每个图片的左右间距---通过div的实际宽度减去水平6张图片宽度,再除以5个间隔*/
+			var _x=($('.wrap').width()-150*6)/5;
+			/*计算每个图片的上下间隔--通过div的实际高度减去水平方向的4张照片,再除以3个间距*/
+			var _y=($('.wrap').height()-100*4)/3;
+
+			/*获取到ul下面的所有li*/
+			 $('.imgs>li').each(function(index,element){
+				
+				var _xIn=parseInt(index/6);                  //获取图片的行索引值
+				var _yIn=index%6;                            //获取图片的列索引值
+
+				var _left=(150+_x)*_yIn;						//计算每个图片的left值
+				var _top=(100+_y)*_xIn;							//计算每个图片的top值
+                
+				var deg=(Math.random()-0.5)*30                 //使用random生成随机旋转的角度
+
+				
+
+				$(element).css({
+					"left":_left+"px",
+					"top":_top+"px",
+					"transform":"rotate("+deg+"deg)"
+				});
+			 });
+		}
+
+		/*为li绑定  点击事件*/
+		$(".imgs").click(function(e){
+
+			/*使用if判断,判断当前图片是小图还是大图,如果是小图换成大图,大图换成小图*/
+
+			if($(this).hasClass("small")){                          
+				$(this).removeClass("small").addClass("big");    //将合成后的图片去除small类,添加small
+            
+			var img=$(e.target).css("backgroundImage");
+			$(this).children("li").css({
+				"transform":"rotate(0deg) scale(1)",
+				"background":img,
+				"box-shadow":"0 0 0 0",
+				"height":"125px",
+				"width":"125px"
+			});
+
+		/*使用setTimeout设定在点击之后执行一次*/
+		 setTimeout(function(){
+		  $(".imgs li").each(function(index,element){
+			  var _xIn=parseInt(index/6);
+			  var _yIn=index%6;
+			  var xposition=_yIn*125;
+			  var yposition=_xIn*125;
+
+			  /*    计算拼接后的left和top*/
+
+			  var _left=($(".wrap").width()-750)/2;
+			  var _top=($(".wrap").height()-500)/2;
+
+			  $(element).css({
+				"background-position":"-"+xposition+"px -"+yposition+"px",
+				"left":(xposition+_left)+"px",
+				"top":(yposition+_top)+"px"
+			  });
+		  });
+
+		},1000);
+	}else{          
+			$(this).removeClass('big').addClass("small");
+			initposition();
+			$(this).children("li").each(function(index,element){
+				var phoIn=index+1;
+				$(element).css({
+					"height":"100px",
+					"width":"150px",
+					"background":"url(img/"+phoIn+".jpg)",
+					"background-size":"150px 100px",
+					"box-shadow":"0 0 40px #ffffff"
+				});
+			});
+
+
+				}
+		});
+	});
+ </script>
+</html>
