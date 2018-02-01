@@ -1,0 +1,283 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    height: 2000px;
+    width: 1080px;
+
+    margin: 0px auto;
+}
+.header{
+    height: 130px;
+    width: 1080px;
+    background-color: #FFFEEF;
+    position: relative;
+}
+
+.logo{
+
+    width: 150px;
+    padding-top: 12px;
+    padding-left: 3px;
+    color: #6cc3df;
+    font-size:35px;
+    font-style: italic;
+    font-weight: 900;
+    font-family: "Microsoft Yahei", "微软雅黑", arial, "宋体", sans-serif;
+}
+.nav_word #one{
+    font-size: 18px;
+    position: absolute;
+    list-style: none;
+    top:58px;
+    left: 230px;
+    text-align: center;
+    padding-right:30px;
+    border-right: #6cc3df 1px solid;
+}
+.nav_word #two{
+    font-size: 18px;
+    position: absolute;
+    list-style: none;
+    top:58px;
+    left: 390px;
+    text-align: center;
+    padding-right:30px;
+    border-right: #6cc3df 1px solid;
+}
+.nav_word #three{
+    font-size: 18px;
+    position: absolute;
+    list-style: none;
+    top:58px;
+    left: 540px;
+    text-align: center;
+    padding-right:30px;
+    border-right: #6cc3df 1px solid;
+}
+
+.nav_word a{
+    text-decoration: none;
+    color: #6cc3df;
+}
+
+.nav_word a:hover, a:active{
+    color: #1c1c1c;
+}
+
+.nav_right{
+    position: absolute;
+    left: 830px;
+    top:18px;
+}
+.nav_right li{
+    list-style: none;
+    font-size: 14px;
+    display: inline;
+    margin-right: 30px;
+}
+
+.nav_right a{
+    text-decoration: none;
+    color: #6cc3df;
+}
+
+.nav_right a:hover{
+    color: #1c1c1c;
+}
+
+#search{
+display: inline;
+    position: absolute;
+    top:85px;
+    left:860px;
+}
+ #search input{
+     border: #6cc3df 1px solid;
+     height: 20px;
+
+ }
+
+#number{
+    display: inline;
+    position: absolute;
+    top:60px;
+    left:885px;
+    color: #6cc3df;
+    font-size: 17px;
+}
+
+.top{
+    height: 550px;
+    width: 1080px;
+}
+
+.mid{
+    margin-top: 13px;
+}
+.mid_img1{
+    display: inline-block;
+    height:300px;
+    width: 351px;
+    background-color: #6cc3df;
+}
+
+.mid_img2{
+    display: inline-block;
+    height:300px;
+    width: 350px;
+    background-color: #6cc3df;
+    margin-left:6px;
+}
+
+.mid_img1 span{
+    padding-left: 15px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+
+}
+
+.mid_img2 span{
+    padding-left: 15px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+}
+.down{
+    margin-top: 13px;
+    position: relative;
+}
+.down .down_left{
+
+    display: inline-block;
+    height: 430px;
+    width: 270px;
+    background-color: #ffff00;
+}
+
+.down_left .word{
+    display: inline-block;
+    width: 20px;
+    line-height: 24px;
+    font-size: 22px;
+    font-family: "等线 Light";
+    margin-left: 10px;
+    word-wrap: break-word
+}
+
+.down_left .word2{
+    position: relative;
+    top:145px;
+    left:125px;
+    display: inline-block;
+    width: 18px;
+    line-height: 24px;
+    font-size: 20px;
+    font-family: "等线 Light";
+    margin-left: 10px;
+    word-wrap: break-word
+}
+
+.down_right{
+    height: 430px;
+    width: 800px;
+    position: absolute;
+    left: 280px;
+    top:0px;
+    background-color: #1c1c1c;
+}
+
+
+
+.down_img1{
+    display: inline-block;
+    height:300px;
+    width: 350px;
+    background-color: #6cc3df;
+
+}
+
+.down_img2{
+    display: inline-block;
+    height:300px;
+    width: 350px;
+    background-color: #6cc3df;
+    margin-left:6px;
+}
+
+.down_img1 span{
+    padding-left: 15px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+
+}
+
+.down_img2 span{
+    padding-left: 15px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.footer{
+    position: absolute;
+    margin-top: 13px;
+    /*background-color: #0a399c;*/
+    height: 250px;
+    width: 1080px;
+}
+
+.footer_nav{
+    height: 30px;
+    width: 1080px;
+    background-color: gainsboro;
+}
+
+.footer_nav span{
+    position: absolute;
+    left:20px;
+    top:5px;
+}
+
+.footer_nav img{
+    position: absolute;
+    top:6px;
+    left: 85px;
+
+}
+
+.footer_main{
+
+    margin-top:13px;
+    border-top: gainsboro 1px solid;
+}
+
+.footer_main_left{
+    padding-top: 15px;
+    color: grey;
+    font-size: 15px;
+}
+
+.footer_main_right{
+    position: absolute;
+    top:55px;
+    left: 990px;
+    color: grey;
+    font-size: 16px;
+}
+
+.footer #img1{
+    position: absolute;
+    top:80px;
+    left: 1000px;
+}
+.footer #img2{
+    position: absolute;
+    top:80px;
+    left: 1040px;
+}
+
