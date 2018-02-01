@@ -1,0 +1,125 @@
+
+.submit {
+    position: relative;
+    top:-30px;
+    left:600px;
+    display: block;
+    width: 80px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #f60;
+}
+
+
+
+.type{
+    width: 90px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    background-color: #59b200;
+    position: relative;
+    top: -370px;
+    left: 0;
+}
+
+ .tour .buy {
+    position: absolute;
+    top: 55px;
+    right: 30px;
+}
+ .price {
+    color: #f60;
+    font-size: 20px;
+    position: relative;
+    top:240px;
+}
+ .price strong {
+    font-size: 36px;
+}
+ .price s {
+    font-size: 16px;
+    position: relative;
+    top:10px;
+    color: #999;
+}
+ .tour .reserve {
+    margin: 10px 0 0 0;
+}
+ .tour .reserve a {
+    display: block;
+    width: 152px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    background-color: darkgray;
+    position: relative;
+    top:235px;
+}
+
+
+
+.tour{
+    background: #EEEEEE;
+    height: 230px;
+}
+.list_about_right_h2 {
+
+    font-size: 30px;
+    color: #333;
+    font-weight: normal;
+    border-bottom: 1px dashed grey;
+    padding-bottom: 20px;
+
+}
+
+ .tour h2 {
+     position: relative;
+     top:-235px;
+     left:380px;
+    font-size: 28px;
+    color: #333;
+    font-weight: normal;
+     border-bottom: 1px dashed grey;
+     padding: 10px 0 20px 40px;
+
+}
+ .tour h3 {
+     position: relative;
+     top:-230px;
+     left:380px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    font-weight: normal;
+    padding: 10px 0 10px 25px;
+}
+
+.aboutmain_mark{
+    padding-top: 30px;
+}
+.aboutmain_mark mark{
+    background-color: #fff;
+    border: 1px solid #458b00;
+    border-radius: 4px;
+    padding: 0 5px;
+    color: #458b00;
+}
+
+.aboutmain_mark li{
+    font-size: 21px;
+    color: #666;
+}
+
+.list_about_maindown{
+    margin-top: 88px;
+}
